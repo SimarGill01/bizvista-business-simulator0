@@ -1,0 +1,130 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    border-color: theme('colors.line');
+  }
+  html {
+    -webkit-text-size-adjust: 100%;
+    scroll-behavior: smooth;
+  }
+  body {
+    margin: 0;
+    background-color: #0B1120;
+    color: #F5F7FA;
+    font-family: 'Plus Jakarta Sans', Inter, system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-feature-settings: 'cv11', 'ss01';
+    letter-spacing: -0.01em;
+  }
+  ::selection {
+    background: rgba(184, 243, 74, 0.25);
+    color: #F5F7FA;
+  }
+}
+
+@layer components {
+  .card {
+    @apply rounded-2xl border border-line bg-bg-card shadow-card;
+  }
+  .card-hover {
+    @apply transition-all duration-200 hover:border-accent-primary/40 hover:shadow-glow;
+  }
+  .glass {
+    @apply border border-white/5 bg-white/[0.03] backdrop-blur-xl;
+  }
+  .input {
+    @apply w-full rounded-xl border border-line bg-bg-input px-4 py-2.5 text-ink-primary placeholder-ink-muted outline-none transition-all duration-200 focus:border-accent-primary/60 focus:ring-2 focus:ring-accent-primary/15;
+  }
+  .label {
+    @apply mb-1.5 block text-sm font-medium text-ink-secondary;
+  }
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl px-4 py-2.5 text-sm font-semibold transition-all duration-200 disabled:cursor-not-allowed disabled:opacity-50;
+  }
+  .btn-primary {
+    @apply bg-accent-primary text-bg-base hover:bg-accent-primaryDark hover:shadow-glow active:scale-[0.98];
+  }
+  .btn-secondary {
+    @apply bg-accent-secondary text-white hover:bg-accent-secondaryDark hover:shadow-glowSec active:scale-[0.98];
+  }
+  .btn-ghost {
+    @apply border border-line bg-transparent text-ink-primary hover:bg-bg-hover hover:border-ink-muted active:scale-[0.98];
+  }
+  .btn-danger {
+    @apply bg-danger/15 text-danger border border-danger/30 hover:bg-danger/25;
+  }
+  .stat-label {
+    @apply text-xs font-medium uppercase tracking-wider text-ink-secondary;
+  }
+  .chip {
+    @apply inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-xs font-medium;
+  }
+}
+
+@layer utilities {
+  .scrollbar-thin {
+    scrollbar-width: thin;
+    scrollbar-color: #27384F transparent;
+  }
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  .scrollbar-thin::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    background-color: #27384F;
+    border-radius: 9999px;
+    border: 2px solid transparent;
+    background-clip: content-box;
+  }
+  .scrollbar-thin::-webkit-scrollbar-thumb:hover {
+    background-color: #3a4d68;
+  }
+  .text-balance {
+    text-wrap: balance;
+  }
+  .grid-bg {
+    background-image:
+      linear-gradient(to right, rgba(39, 56, 79, 0.4) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(39, 56, 79, 0.4) 1px, transparent 1px);
+    background-size: 48px 48px;
+  }
+  .radial-glow {
+    background: radial-gradient(60% 60% at 50% 0%, rgba(184, 243, 74, 0.12) 0%, transparent 70%);
+  }
+}
+
+/* Recharts tooltip dark theme override */
+.recharts-default-tooltip {
+  background-color: #101827 !important;
+  border: 1px solid #27384F !important;
+  border-radius: 12px !important;
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.4) !important;
+}
+.recharts-tooltip-label {
+  color: #F5F7FA !important;
+  font-weight: 600 !important;
+}
+.recharts-tooltip-item {
+  color: #94A3B8 !important;
+}
+.recharts-cartesian-axis-tick text {
+  fill: #94A3B8;
+  font-size: 12px;
+}
+.recharts-cartesian-grid line {
+  stroke: #27384F;
+}
+.recharts-legend-item-text {
+  color: #94A3B8 !important;
+  font-size: 13px;
+}
+.recharts-active-dot {
+  filter: drop-shadow(0 0 6px rgba(184, 243, 74, 0.6));
+}
